@@ -1,0 +1,244 @@
+$mainColor: #009EE3;
+
+$altColor: #fff;
+
+$lastColor:#2E2E2E;
+
+$mainPad: 75px;
+$h2:3em;
+$h3:1.7em;
+/*small frame-work*/
+
+*{box-sizing: border-box}
+
+body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+h2,h3,h4{margin: 0;padding: 0}
+
+a{text-decoration: none}
+
+.clearfix{clear: both}
+
+header,section,article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Start Nav */
+
+nav {
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    padding: 0 $mainPad/3;
+    background: $lastColor;
+    opacity: 0.9;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    min-height: 80px;
+    padding-top: 27px;
+}
+
+nav i,nav .fa {display: none;float: right;color: $altColor}
+
+nav h2 {float: left;}
+
+nav h2 a{color: $mainColor;text-shadow: 2px 2px rgba(25,15,15,.9);text-transform: uppercase}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 3px 0;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: flex-end;
+    float: right;
+    
+}
+
+nav ul li {
+    margin: 0;
+    padding: 0;
+    margin-right: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+nav ul li:last-of-type {margin-right: 0}
+
+nav ul li a {color: $altColor}
+
+nav ul li a:hover {opacity: .7}
+
+/* Start Header */
+
+header {
+    text-align: center;
+    color: $altColor;
+    background: url(../img/slider/banner.jpg) 50% 50% fixed;
+    background-size: cover;
+    padding: 5% 0 0;
+}
+
+header div {padding: 15% 0}
+
+header h2,header h3,button{padding: 15px 0;color:$altColor}
+
+header h2{font-size: $h2}
+
+header h3{font-weight: 500;font-size: $h3}
+
+/* style for button */
+
+header button,section button{
+    margin: 30px 0 0;
+    background: $mainColor;
+    border: 0;
+    width: 15%;
+    transition: all .5s ease-in-out;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+button::before {
+	content: "";
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: $altColor;
+    transform-origin: 100% 50%;
+    transition: all .6s ease-in-out;
+}
+
+button:hover::before {transform: scaleY(10);height: 100%;}
+
+button:hover {color: $mainColor}
+
+/* Section Home */
+
+section#home {
+    background: $mainColor;
+    overflow: hidden;
+    padding: $mainPad / 2;
+    #works{
+        width: 100% / (3/1.2);
+        padding-right: $mainPad;
+        float:left;
+        p:last-of-type{margin-bottom: $mainPad / 2}
+    }
+    
+    #intro{
+        width:  100% /(3/1.8);
+        float:right;
+        
+        img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid $altColor;
+            float: left;
+            margin-right: $mainPad / 2;
+            margin-bottom: $mainPad * 2
+        }
+        
+        button{
+            float: right;
+            margin-top: $mainPad / 2;
+            border: 2px solid $altColor;
+            width: 30%;
+        }
+     
+    }
+    
+    h2{
+        margin-bottom: $mainPad / 2;
+        font-weight: normal;
+    }
+    
+    h2,p{
+        color: $altColor;
+    }
+    p{
+        line-height: 25px;
+        font-family: 'Open Sans', sans-serif;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    
+    nav{padding: 25px 15px}
+    nav ul {display: none}
+    nav i,nav .fa {display: inline-block}
+    header{padding: 35% 0 15%;}
+    header h2{font-size: $h2 / 1.5}
+    header h3{font-size: $h3/ 1.3}
+    header button{width: 30%}
+    section#home {flex-direction: column;}
+    section#home article#works {padding: 0}
+    section#home article#works,section#home article#intro {width: 100%}
+    article.service {flex-direction: column;}
+    #img img {width: 45%;}
+}
+
+/* Service Section */
+
+article.service-info {
+    text-align: center;
+    margin: $mainPad/2 auto 0;
+    hr{width: 10%;border-color: $mainColor}
+    div:first-of-type {
+        margin-bottom: 10px;
+        & > a {
+            color:$mainColor;
+            font-size: 1.5em;
+            border-bottom: 1px solid #CCC;
+            cursor: pointer
+        }
+    }
+    
+    img {
+        width: 30%;-webkit-filter: brightness(0.30);filter: brightness(0.30);transition: .3s all ease-in-out
+    }
+    img:hover {
+        filter: none;-webkit-filter:none;
+    }
+}
+
+
+
+article.service {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $mainPad / 2 ;
+    text-align: center;
+}
+
+article.service > div {
+    margin: $mainPad / 4;
+    color: #818181;
+    border: 1px solid transparent;
+    h3{color:#333;}
+}
+
+article.service i {
+    padding: $mainPad/4;
+    margin: $mainPad/4;
+    transition: all .5s ease-in-out;
+    &:hover{
+        border: 1px solid $mainColor;
+        border-bottom: 0;
+        border-radius: 10%;
+        color: $mainColor;
+        transform: rotateZ(360deg);
+        }
+}
